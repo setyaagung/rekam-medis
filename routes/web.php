@@ -25,6 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     //dokter
     Route::resource('dokter', 'DokterController');
+    //jurusan
+    Route::resource('jurusan', 'JurusanController');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');

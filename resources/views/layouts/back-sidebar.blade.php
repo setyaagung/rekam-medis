@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ (request()->segment(1) == 'dokter') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->segment(1) == 'dokter') ? 'active' : '' }} {{ (request()->segment(1) == 'jurusan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Data Master
@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('jurusan.index')}}" class="nav-link {{ (request()->segment(1) == 'jurusan') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Jurusan</p>
                             </a>
