@@ -23,10 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    //dokter
+    //data master
     Route::resource('dokter', 'DokterController');
-    //jurusan
     Route::resource('jurusan', 'JurusanController');
+    Route::resource('taruna', 'TarunaController');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');

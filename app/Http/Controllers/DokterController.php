@@ -44,8 +44,6 @@ class DokterController extends Controller
         $request->validate([
             'nid' => 'required|string|unique:dokter',
             'nama_dokter' => 'required|string|max:191',
-            'no_telp' => 'required',
-            'alamat' => 'required',
             'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ], $message);
@@ -103,8 +101,6 @@ class DokterController extends Controller
         $request->validate([
             'nid' => 'required|string|unique:dokter,nid,' . $id . ',id_dokter',
             'nama_dokter' => 'required|string|max:191',
-            'no_telp' => 'required',
-            'alamat' => 'required',
             'email' => 'required|string|email|max:191|unique:users,email,' . $user->id_user . ',id_user',
         ], $message);
         $data = $request->all();

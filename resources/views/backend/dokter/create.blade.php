@@ -41,21 +41,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nomor Telepon</label>
-                                    <input id="no_telp" type="text" class="form-control @error('no_telp') is-invalid @enderror" name="no_telp" value="{{ old('no_telp') }}" required autocomplete="no_telp">
-                                    @error('no_telp')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input id="no_telp" type="text" class="form-control" name="no_telp" value="{{ old('no_telp') }}" autocomplete="no_telp">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Alamat</label>
-                                    <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="4" required>{{ old('alamat')}}</textarea>
-                                    @error('alamat')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <textarea name="alamat" class="form-control" rows="4">{{ old('alamat')}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email</label>
