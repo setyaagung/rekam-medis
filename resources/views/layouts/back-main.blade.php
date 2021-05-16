@@ -52,7 +52,14 @@
         <script>
             $.widget.bridge('uibutton', $.ui.button);
              //Initialize Select2 Elements
-            $('.select2').select2();
+            $('.taruna').select2({
+                placeholder: "-- Pilih Taruna --",
+                allowClear: true
+            });
+            $('.dokter').select2({
+                placeholder: "-- Pilih Dokter --",
+                allowClear: true
+            });
             $(function () {
                 $("#example1").DataTable({
                     "responsive": true,

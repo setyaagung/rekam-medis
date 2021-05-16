@@ -58,6 +58,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link {{ (request()->segment(1) == 'rekam-medis') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-medical-alt"></i>
+                        <p>
+                            Rekam Medis
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('rekam-medis.create')}}" class="nav-link {{ (request()->is('rekam-medis/create')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tambah Rekam Medis</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('rekam-medis.index')}}" class="nav-link {{ (request()->is('rekam-medis/index')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Lihat Rekam Medis</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('user.index')}}" class="nav-link {{ (request()->segment(1) == 'user') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>

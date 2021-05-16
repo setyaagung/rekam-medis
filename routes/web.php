@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes([
-    //'register' => false
+    'register' => false
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dokter', 'DokterController');
     Route::resource('jurusan', 'JurusanController');
     Route::resource('taruna', 'TarunaController');
+    //rekam medis
+    Route::resource('rekam-medis', 'RekamMedisController');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');
