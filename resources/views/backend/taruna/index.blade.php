@@ -55,6 +55,14 @@
                                     </button>
                                 </div>
                             @endif
+                            @if ($message = Session::get('errorImport'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Error!</strong> {{$message}}.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
                             <table id="example1" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
@@ -109,7 +117,12 @@
                     </div>
 					<div class="modal-body">
 						<div class="form-group">
-							<input type="file" class="form-control p-1" name="file" required>
+							<input type="file" class="form-control p-1 @error('file') is-invalid @enderror" name="file" required>
+                            @error('file')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 					</div>
 					<div class="modal-footer">

@@ -7,6 +7,7 @@ use App\Model\Jurusan;
 use App\Model\Taruna;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TarunaController extends Controller
 {
@@ -121,7 +122,14 @@ class TarunaController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,xls,xlsx'
         ]);
-        Excel::import(new TarunaImport, $request->file('file'));
-        return redirect()->route('taruna.index')->with('import', 'Import data taruna berhasil');
+        DB::beginTransaction();
+        try {
+            Excel::import(new TarunaImport, $request->file('file'));
+            DB::commit();
+            return redirect()->route('taruna.index')->with('import', 'Import data taruna berhasil');
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            DB::rollback();
+            return redirect()->back()->with('errorImport', 'Kemungkingan format file anda salah atau data nit ada yang sama');
+        }
     }
 }
