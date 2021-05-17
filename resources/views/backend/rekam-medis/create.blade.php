@@ -19,7 +19,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('rekam-medis.store')}}" method="POST">
+                            <form action="#" method="POST">
                                 @csrf
                                 <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -50,6 +50,15 @@
                                     </div>
                                     <div class="tab-pane fade" id="form3" role="tabpanel" aria-labelledby="form3-tab">
                                         @include('backend.rekam-medis.formulir3')
+                                    </div>
+                                    <div class="tab-pane fade" id="form4" role="tabpanel" aria-labelledby="form4-tab">
+                                        @include('backend.rekam-medis.formulir4')
+                                    </div>
+                                    <div class="tab-pane fade" id="form5" role="tabpanel" aria-labelledby="form5-tab">
+                                        @include('backend.rekam-medis.formulir5')
+                                    </div>
+                                    <div class="tab-pane fade" id="form6" role="tabpanel" aria-labelledby="form6-tab">
+                                        @include('backend.rekam-medis.formulir6')
                                     </div>
                                 </div>
                             </form>

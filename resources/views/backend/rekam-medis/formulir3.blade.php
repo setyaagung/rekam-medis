@@ -44,6 +44,35 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="">Catatan Kemampuan Pendengaran Memenuhi Standar SCTW A-1/9</label>
+        <textarea name="catatan_pendengaran" class="form-control" rows="3"></textarea>
+        <span class="text-secondary" style="font-size: 14px"><i>*hanya diisi jika ada catatan khusus maksimal 40 karakter</i></span>
+    </div>
+    <div class="form-group">
+        <label for="">Catatan Kemampuan Pendengaran Tanpa Alat Bantu</label>
+        <textarea name="catatan_pendengaran_tanpa_alat" class="form-control" rows="3"></textarea>
+        <span class="text-secondary" style="font-size: 14px"><i>*hanya diisi jika ada catatan khusus maksimal 40 karakter</i></span>
+    </div>
+    <div class="form-group">
+        <h4 class="font-weight-bold text-primary"><b><u><i>Pemeriksaan Mata*</i></u></b></h4>
+    </div>
+    <div class="form-group">
+        <label for="">Jarak Pandang Mata Kanan Tanpa Kacamata (OD)</label>
+        <input type="text" class="form-control" name="jarak_mata_kanan_tanpa_kacamata">
+    </div>
+    <div class="form-group">
+        <label for="">Jarak Pandang Mata Kiri Tanpa Kacamata (OS)</label>
+        <input type="text" class="form-control" name="jarak_mata_kiri_tanpa_kacamata">
+    </div>
+    <div class="form-group">
+        <label for="">Jarak Pandang Mata Kanan Dengan Kacamata (OD)</label>
+        <input type="text" class="form-control" name="jarak_mata_kanan_dengan_kacamata">
+    </div>
+    <div class="form-group">
+        <label for="">Jarak Pandang Mata Kiri Dengan Kacamata (OS)</label>
+        <input type="text" class="form-control" name="jarak_mata_kiri_dengan_kacamata">
+    </div>
+    <div class="form-group">
         <label for="">Buta Warna</label>
         <select name="buta_warna" class="form-control" required>
             <option value="negatif">Negatif</option>
