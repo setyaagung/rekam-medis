@@ -19,7 +19,7 @@ class TarunaImport implements ToModel, WithValidation
     {
         //dd($row);
         return new Taruna([
-            'nama_taruna' => $row[1],
+            'nama_taruna' => strtoupper($row[1]),
             'nit' => $row[2],
             'id_jurusan' => $row[3],
             'no_telp' => $row[4],
