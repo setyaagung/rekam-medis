@@ -1,4 +1,3 @@
-<div class="tab-pane fade show" id="form2" role="tabpanel" aria-labelledby="form2-tab">
     <div class="form-group">
         <label for="">Denyut Nadi (x/menit)</label>
         <input type="text" class="form-control" name="denyut_nadi">
@@ -74,4 +73,3 @@
             <option value="tidak normal">Tidak Normal</option>
         </select>
     </div>
-</div>

@@ -48,6 +48,9 @@
                                     <div class="tab-pane fade" id="form2" role="tabpanel" aria-labelledby="form2-tab">
                                         @include('backend.rekam-medis.formulir2')
                                     </div>
+                                    <div class="tab-pane fade" id="form3" role="tabpanel" aria-labelledby="form3-tab">
+                                        @include('backend.rekam-medis.formulir3')
+                                    </div>
                                 </div>
                             </form>
                         </div>

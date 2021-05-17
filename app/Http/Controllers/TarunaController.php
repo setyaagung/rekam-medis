@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\TarunaImport;
 use App\Model\Jurusan;
 use App\Model\Taruna;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class TarunaController extends Controller
@@ -111,5 +113,15 @@ class TarunaController extends Controller
         $taruna = Taruna::findOrFail($id);
         $taruna->delete();
         return redirect()->route('taruna.index')->with('delete', 'Data taruna berhasil dihapus');
+    }
+
+    public function import(Request $request)
+    {
+        // validasi
+        $request->validate([
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+        Excel::import(new TarunaImport, $request->file('file'));
+        return redirect()->route('taruna.index')->with('import', 'Import data taruna berhasil');
     }
 }
