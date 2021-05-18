@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('jurusan', 'JurusanController');
     Route::resource('taruna', 'TarunaController');
     Route::post('/taruna/import', 'TarunaController@import')->name('taruna.import');
+    Route::resource('sertifikat', 'SertifikatController');
     //rekam medis
     Route::resource('rekam-medis', 'RekamMedisController');
     //user

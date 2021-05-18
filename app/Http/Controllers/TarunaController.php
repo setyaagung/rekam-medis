@@ -18,7 +18,7 @@ class TarunaController extends Controller
      */
     public function index()
     {
-        $tarunas = Taruna::all();
+        $tarunas = Taruna::orderBy('nit', 'ASC')->get();
         return view('backend.taruna.index', compact('tarunas'));
     }
 

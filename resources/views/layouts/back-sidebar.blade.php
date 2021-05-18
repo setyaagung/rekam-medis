@@ -56,6 +56,12 @@
                                 <p>Taruna</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('sertifikat.index')}}" class="nav-link {{ (request()->segment(1) == 'sertifikat') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sertifikat</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
