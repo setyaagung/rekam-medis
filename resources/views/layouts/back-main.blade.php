@@ -56,7 +56,7 @@
                 placeholder: "-- Pilih Taruna --",
                 allowClear: true
             });
-            $('.dokter').select2({
+            $('.dok').select2({
                 placeholder: "-- Pilih Dokter --",
                 allowClear: true
             });
