@@ -9,39 +9,12 @@
     </div>
     <div class="form-group">
         <label for="">Nama Dokter Pemeriksa</label>
-        <select class="form-control dok" name="id_dokter" style="width: 100%;" required>
+        <select class="form-control dokter" name="id_dokter" style="width: 100%;" required>
             <option value=""></option>
             @foreach ($dokters as $dokter)
                 <option value="{{ $dokter->id_dokter}}">{{ $dokter->nama_dokter}}</option>
             @endforeach
         </select>
-    </div>
-    <div class="form-group">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Nama Dokter Pemeriksa</th>
-                    <th>
-                        <a href="#" class="btn btn-sm btn-success addRow"><i class="fas fa-plus"></i></a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="oke" class="body_dokter">
-                <tr>
-                    <td>
-                        <select style="width: 100%" name="id_dokter[]" class="form-control dokter" required>
-                            <option value="">-- Pilih Dokter --</option>
-                            @foreach ($dokters as $dokter)
-                                <option value="{{ $dokter->id_dokter}}">{{ $dokter->nama_dokter}}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-danger remove"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
     <div class="form-group">
         <label for="">Nomor Catatan Rekam Medis</label>

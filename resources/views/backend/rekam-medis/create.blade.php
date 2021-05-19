@@ -69,37 +69,3 @@
         </div>
     </section>
 @endsection
-
-@push('scripts')
-    <script>
-        $('.addRow').on('click',function(){
-            addRow();
-        });
-
-        function addRow(){
-            var tr ='';
-                    tr += '<tr>';
-                        tr += '<td>';
-                            tr += '<select style="width: 100%" name="id_dokter[]" class="form-control dokter" required>';
-                                tr += '<option value="">-- Pilih Dokter --</option>';
-                                    tr += '@foreach ($dokters as $dokter)';
-                                        tr += '<option value="{{ $dokter->id_dokter}}">{{ $dokter->nama_dokter}}</option>';
-                                    tr += '@endforeach';
-                            tr += '</select>';
-                        tr += '</td>';
-                        tr += '<td>';
-                            tr += '<a href="#" class="btn btn-sm btn-danger remove"><i class="fas fa-trash"></i></a>';
-                        tr += '</td>';
-                    tr += '</tr>';
-            $('.body_dokter').append(tr);
-        }
-
-        $(document).on('click','.remove', function(){
-            if($('.body_dokter tr').length == 1){
-                alert('Anda tidak dapat menghapus baris terakhir');
-            }else{
-                $(this).parent().parent().remove();
-            }
-        });
-    </script>
-@endpush
