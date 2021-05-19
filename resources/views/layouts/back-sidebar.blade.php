@@ -62,6 +62,12 @@
                                 <p>Sertifikat</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('jabatan.index')}}" class="nav-link {{ (request()->segment(1) == 'jabatan') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Jabatan</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
