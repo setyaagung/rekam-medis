@@ -58,62 +58,62 @@
     </div>
     <div class="form-group">
         <label for="">Jarak Pandang Mata Kanan Tanpa Kacamata (OD)</label>
-        <input type="text" class="form-control" name="jarak_mata_kanan_tanpa_kacamata">
+        <input type="text" class="form-control" name="jarak_mata_kanan_tanpa_kacamata" value="{{ old('jarak_mata_kanan_tanpa_kacamata')}}">
     </div>
     <div class="form-group">
         <label for="">Jarak Pandang Mata Kiri Tanpa Kacamata (OS)</label>
-        <input type="text" class="form-control" name="jarak_mata_kiri_tanpa_kacamata">
+        <input type="text" class="form-control" name="jarak_mata_kiri_tanpa_kacamata" value="{{ old('jarak_mata_kiri_tanpa_kacamata')}}">
     </div>
     <div class="form-group">
         <label for="">Jarak Pandang Mata Kanan Dengan Kacamata (OD)</label>
-        <input type="text" class="form-control" name="jarak_mata_kanan_dengan_kacamata">
+        <input type="text" class="form-control" name="jarak_mata_kanan_dengan_kacamata" value="{{ old('jarak_mata_kanan_dengan_kacamata')}}">
     </div>
     <div class="form-group">
         <label for="">Jarak Pandang Mata Kiri Dengan Kacamata (OS)</label>
-        <input type="text" class="form-control" name="jarak_mata_kiri_dengan_kacamata">
+        <input type="text" class="form-control" name="jarak_mata_kiri_dengan_kacamata" value="{{ old('jarak_mata_kiri_dengan_kacamata')}}">
     </div>
     <div class="form-group">
         <label for="">Buta Warna</label>
         <select name="buta_warna" class="form-control" required>
-            <option value="negatif">Negatif</option>
-            <option value="positif">Positif</option>
+            <option value="negatif" {{ old('buta_warna') == 'negatif' ? 'selected':''}}>Negatif</option>
+            <option value="positif" {{ old('buta_warna') == 'positif' ? 'selected':''}}>Positif</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Normal Colour Test</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="normal_colour_test" value="ISHIHARA BOOK 38 PLATE">
+            <input class="form-check-input" type="radio" name="normal_colour_test" value="ISHIHARA BOOK 38 PLATE" {{ old('normal_colour_test') == 'ISHIHARA BOOK 38 PLATE' ? 'checked':''}}>
             <label class="form-check-label">ISHIHARA BOOK 38 PLATE</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="normal_colour_test" value="LANTERN">
+            <input class="form-check-input" type="radio" name="normal_colour_test" value="LANTERN" {{ old('normal_colour_test') == 'LANTERN' ? 'checked':''}}>
             <label class="form-check-label">LANTERN</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="normal_colour_test" value="FARNSWORTH D15">
+            <input class="form-check-input" type="radio" name="normal_colour_test" value="FARNSWORTH D15" {{ old('normal_colour_test') == 'FARNSWORTH D15' ? 'checked':''}}>
             <label class="form-check-label">FARNSWORTH D15</label>
         </div>
     </div>
     <div class="form-group">
         <label for="">Lapang Pandang</label>
         <select name="lapang_pandang" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('lapang_pandang') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('lapang_pandang') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Pemeriksaan Mata Lain - lain</label>
-        <input type="text" class="form-control" name="pemeriksaan_mata_lain">
+        <input type="text" class="form-control" name="mata_lain" value="{{ old('mata_lain')}}">
     </div>
     <div class="form-group">
         <label for="">Catatan Kemampuan Penglihatan Memenuhi Standar SCTW A-1/9</label>
-        <textarea name="catatan_penglihatan" class="form-control" rows="3"></textarea>
+        <textarea name="catatan_penglihatan" class="form-control" rows="3">{{ old('catatan_penglihatan')}}</textarea>
         <span class="text-secondary" style="font-size: 14px"><i>*hanya diisi jika ada catatan khusus maksimal 40 karakter</i></span>
     </div>
     <div class="form-group">
         <label for="">Apakah Kacamata atau Lensa Kontak Diperlukan Untuk Standar Penglihatan ?</label>
-        <select name="lapang_pandang" class="form-control" required>
-            <option value="tidak perlu">Tidak Perlu</option>
-            <option value="perlu">Perlu</option>
+        <select name="alat_bantu_penglihatan" class="form-control" required>
+            <option value="tidak perlu" {{ old('alat_bantu_penglihatan') == 'tidak perlu' ? 'selected':''}}>Tidak Perlu</option>
+            <option value="perlu" {{ old('alat_bantu_penglihatan') == 'perlu' ? 'selected':''}}>Perlu</option>
         </select>
     </div>

@@ -12,4 +12,14 @@ class RekamMedis extends Model
         'id_taruna', 'id_dokter', 'no_rm', 'id_sertifikat',
         'id_jabatan', 'tanggal_ujian', 'masa_berlaku', 'anamnese'
     ];
+
+    public function taruna()
+    {
+        return $this->belongsTo(Taruna::class, 'id_taruna');
+    }
+
+    public function dokter()
+    {
+        return $this->belongsTo(Dokter::class, 'id_dokter');
+    }
 }

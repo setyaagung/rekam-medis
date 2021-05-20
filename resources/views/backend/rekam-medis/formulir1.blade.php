@@ -3,7 +3,7 @@
         <select class="form-control taruna" name="id_taruna" style="width: 100%;" required>
             <option value=""></option>
             @foreach ($tarunas as $taruna)
-                <option value="{{ $taruna->id_taruna}}">{{ $taruna->nama_taruna}} - {{ $taruna->nit}}</option>
+                <option value="{{ $taruna->id_taruna}}" {{ old('id_taruna') == $taruna->id_taruna ? 'selected':''}}>{{ $taruna->nama_taruna}} - {{ $taruna->nit}}</option>
             @endforeach
         </select>
     </div>
@@ -12,20 +12,20 @@
         <select class="form-control dokter" name="id_dokter" style="width: 100%;" required>
             <option value=""></option>
             @foreach ($dokters as $dokter)
-                <option value="{{ $dokter->id_dokter}}">{{ $dokter->nama_dokter}}</option>
+                <option value="{{ $dokter->id_dokter}}" {{ old('id_dokter') == $dokter->id_dokter ? 'selected':''}}>{{ $dokter->nama_dokter}}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
         <label for="">Nomor Catatan Rekam Medis</label>
-        <input type="text" class="form-control" name="no_rekam_medis" value="{{ old('no_rekam_medis')}}" required>
+        <input type="text" class="form-control" name="no_rm" value="{{ old('no_rm')}}" required>
     </div>
     <div class="form-group">
         <label for="">Sertifikasi Untuk</label>
-        <select class="form-control sertifikasi" name="id_sertifikasi" style="width: 100%;" required>
+        <select class="form-control sertifikasi" name="id_sertifikat" style="width: 100%;" required>
             <option value=""></option>
             @foreach ($sertifikats as $sertifikat)
-                <option value="{{ $sertifikat->id_sertifikat}}">{{ strtoupper($sertifikat->nama_sertifikat)}}</option>
+                <option value="{{ $sertifikat->id_sertifikat}}" {{ old('id_sertifikat') == $sertifikat->id_sertifikat ? 'selected':''}}>{{ strtoupper($sertifikat->nama_sertifikat)}}</option>
             @endforeach
         </select>
     </div>
@@ -34,18 +34,18 @@
         <select class="form-control jabatan" name="id_jabatan" style="width: 100%;" required>
             <option value=""></option>
             @foreach ($jabatans as $jabatan)
-                <option value="{{ $jabatan->id_jabatan}}">{{ strtoupper($jabatan->nama_jabatan)}}</option>
+                <option value="{{ $jabatan->id_jabatan}}" {{ old('id_jabatan') == $jabatan->id_jabatan ? 'selected':''}}>{{ strtoupper($jabatan->nama_jabatan)}}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
         <label for="">Tanggal Ujian</label>
-        <input type="date" class="form-control" name="tanggal_ujian" value="{{ old('tanggal_ujian',date('Y-m-d'))}}">
+        <input type="date" class="form-control" name="tanggal_ujian">
         <span class="text-secondary" style="font-size: 14px"><i>NB: Untuk data rekam medis yang akan dilengkapi kembali atau pelaut membutuhkan tindakan medis lanjutan, silahkan pilih opsi kedua</i></span>
     </div>
     <div class="form-group">
         <label for="">Masa Berlaku</label>
-        <input type="date" class="form-control" name="masa_berlaku" value="{{ old('masa_berlaku',date('Y-m-d'))}}">
+        <input type="date" class="form-control" name="masa_berlaku">
     </div>
     <div class="form-group">
         <label for="">Anamnese</label>

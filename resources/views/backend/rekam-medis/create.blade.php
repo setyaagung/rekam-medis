@@ -19,8 +19,16 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="#" method="POST">
+                            <form action="{{ route('rekam-medis.store')}}" method="POST">
                                 @csrf
+                                @if ($message = Session::get('create'))
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <strong>Success!</strong> {{$message}}.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
                                 <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="form1-tab" data-toggle="tab" href="#form1" role="tab">Formulir 1</a>
