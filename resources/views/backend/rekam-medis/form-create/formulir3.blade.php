@@ -39,7 +39,7 @@
     <div class="form-group">
         <label for="">Pemeriksaan THT Lainnya</label>
         <select name="tht_lain" class="form-control" required>
-            << value="normal" {{ old('tht_lain') == 'normal' ? 'selected':''}}>Normal</>
+            <option value="normal" {{ old('tht_lain') == 'normal' ? 'selected':''}}>Normal</option>
             <option value="tidak normal" {{ old('tht_lain') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>

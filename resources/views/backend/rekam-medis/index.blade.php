@@ -20,15 +20,6 @@
                             <a href="{{ route('rekam-medis.create')}}" class="btn btn-primary btn-sm float-right">Tambah</a>
                         </div>
                         <div class="card-body">
-
-                            @if ($message = Session::get('update'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Updated!</strong> {{$message}}.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
                             @if ($message = Session::get('delete'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <strong>Deleted!</strong> {{$message}}.

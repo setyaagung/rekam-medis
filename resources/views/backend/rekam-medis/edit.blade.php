@@ -1,6 +1,6 @@
 @extends('layouts.back-main')
 
-@section('title','Tambah Rekam Medis')
+@section('title','Edit/Lengkapi Rekam Medis')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -15,15 +15,16 @@
                     <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title font-weight-bold">
-                                Tambah Rekam Medis
+                                Edit/Lengkapi Rekam Medis
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('rekam-medis.store')}}" method="POST">
+                            <form action="{{ route('rekam-medis.update', $rm->id_rm)}}" method="POST">
                                 @csrf
-                                @if ($message = Session::get('create'))
-                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <strong>Success!</strong> {{$message}}.
+                                @method('PATCH')
+                                @if ($message = Session::get('update'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Updated!</strong> {{$message}}.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -51,25 +52,25 @@
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="form1" role="tabpanel" aria-labelledby="form1-tab">
-                                        @include('backend.rekam-medis.form-create.formulir1')
+                                        @include('backend.rekam-medis.form-edit.formulir1')
                                     </div>
                                     <div class="tab-pane fade" id="form2" role="tabpanel" aria-labelledby="form2-tab">
-                                        @include('backend.rekam-medis.form-create.formulir2')
+                                        @include('backend.rekam-medis.form-edit.formulir2')
                                     </div>
                                     <div class="tab-pane fade" id="form3" role="tabpanel" aria-labelledby="form3-tab">
-                                        @include('backend.rekam-medis.form-create.formulir3')
+                                        @include('backend.rekam-medis.form-edit.formulir3')
                                     </div>
                                     <div class="tab-pane fade" id="form4" role="tabpanel" aria-labelledby="form4-tab">
-                                        @include('backend.rekam-medis.form-create.formulir4')
+                                        @include('backend.rekam-medis.form-edit.formulir4')
                                     </div>
                                     <div class="tab-pane fade" id="form5" role="tabpanel" aria-labelledby="form5-tab">
-                                        @include('backend.rekam-medis.form-create.formulir5')
+                                        @include('backend.rekam-medis.form-edit.formulir5')
                                     </div>
                                     <div class="tab-pane fade" id="form6" role="tabpanel" aria-labelledby="form6-tab">
-                                        @include('backend.rekam-medis.form-create.formulir6')
+                                        @include('backend.rekam-medis.form-edit.formulir6')
                                     </div>
                                     <div class="float-right">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </form>
