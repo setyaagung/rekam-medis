@@ -40,7 +40,11 @@
 </div>
 <div class="form-group">
     <label for="">Tanggal Ujian</label>
-    <input type="date" class="form-control" name="tanggal_ujian" value="{{ date('Y-m-d',strtotime($rm->tanggal_ujian))}}">
+    @if ($rm->tanggal_ujian == null)
+    <input type="date" class="form-control" name="tanggal_ujian">
+    @else
+        <input type="date" class="form-control" name="tanggal_ujian" value="{{ date('Y-m-d',strtotime($rm->tanggal_ujian))}}">
+    @endif
     <span class="text-secondary" style="font-size: 14px"><i>NB: Untuk data rekam medis yang akan dilengkapi kembali atau pelaut membutuhkan tindakan medis lanjutan, silahkan pilih opsi kedua</i></span>
 </div>
 <div class="form-group">
