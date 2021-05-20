@@ -41,7 +41,7 @@
                                 <thead>
                                     <tr>
                                         <th>NO</th>
-                                        <th>NOMOR CATATAN REKAM MEDIS</th>
+                                        <th>NOMOR REKAM MEDIS</th>
                                         <th>TARUNA</th>
                                         <th>DOKTER</th>
                                         <th>TANGGAL UJIAN</th>

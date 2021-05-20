@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
         <label for="">Masa Berlaku</label>
-        <input type="date" class="form-control" name="masa_berlaku">
+        <input type="date" class="form-control" name="masa_berlaku" required>
     </div>
     <div class="form-group">
         <label for="">Anamnese</label>

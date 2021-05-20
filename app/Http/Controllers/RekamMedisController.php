@@ -209,7 +209,7 @@ class RekamMedisController extends Controller
     {
         $rm = RekamMedis::findOrFail($id);
         $rm->delete();
-        return redirect()->route('rekam-medis.index')->with('delete', 'Data rekam medis berhasil dihapus');
+        return redirect()->back()->with('delete', 'Data rekam medis berhasil dihapus');
     }
 
     public function lengkapi_data()
