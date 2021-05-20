@@ -60,6 +60,9 @@
                                     <div class="tab-pane fade" id="form6" role="tabpanel" aria-labelledby="form6-tab">
                                         @include('backend.rekam-medis.formulir6')
                                     </div>
+                                    <div class="float-right">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

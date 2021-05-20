@@ -4,53 +4,53 @@
     <div class="form-group">
         <label for="">Hidung</label>
         <select name="hidung" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('hidung') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('hidung') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Telinga</label>
         <select name="telinga" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('telinga') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('telinga') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Tenggorokan</label>
         <select name="tenggorokan" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('tenggorokan') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('tenggorokan') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Audiogram Kiri</label>
         <select name="audiogram_kiri" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('audiogram_kiri') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('audiogram_kiri') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Audiogram Kanan</label>
         <select name="audiogram_kanan" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            <option value="normal" {{ old('audiogram_kanan') == 'normal' ? 'selected':''}}>Normal</option>
+            <option value="tidak normal" {{ old('audiogram_kanan') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Pemeriksaan THT Lainnya</label>
         <select name="tht_lain" class="form-control" required>
-            <option value="normal">Normal</option>
-            <option value="tidak normal">Tidak Normal</option>
+            << value="normal" {{ old('tht_lain') == 'normal' ? 'selected':''}}>Normal</>
+            <option value="tidak normal" {{ old('tht_lain') == 'tidak normal' ? 'selected':''}}>Tidak Normal</option>
         </select>
     </div>
     <div class="form-group">
         <label for="">Catatan Kemampuan Pendengaran Memenuhi Standar SCTW A-1/9</label>
-        <textarea name="catatan_pendengaran" class="form-control" rows="3"></textarea>
+        <textarea name="catatan_pendengaran" class="form-control" rows="3">{{ old('catatan_pendengaran')}}</textarea>
         <span class="text-secondary" style="font-size: 14px"><i>*hanya diisi jika ada catatan khusus maksimal 40 karakter</i></span>
     </div>
     <div class="form-group">
         <label for="">Catatan Kemampuan Pendengaran Tanpa Alat Bantu</label>
-        <textarea name="catatan_pendengaran_tanpa_alat" class="form-control" rows="3"></textarea>
+        <textarea name="catatan_pendengaran_tanpa_alat" class="form-control" rows="3">{{ old('catatan_pendengaran_tanpa_alat')}}</textarea>
         <span class="text-secondary" style="font-size: 14px"><i>*hanya diisi jika ada catatan khusus maksimal 40 karakter</i></span>
     </div>
     <div class="form-group">

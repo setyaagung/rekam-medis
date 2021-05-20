@@ -57,7 +57,7 @@
                                     @foreach ($jabatans as $jabatan)
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
-                                            <td>{{ $jabatan->nama_jabatan}}</td>
+                                            <td>{{ strtoupper($jabatan->nama_jabatan)}}</td>
                                             <td>{{ $jabatan->deskripsi}}</td>
                                             <td>
                                                 <a href="{{ route('jabatan.edit',$jabatan->id_jabatan)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit</a>

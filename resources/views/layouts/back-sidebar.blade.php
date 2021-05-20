@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ (request()->segment(1) == 'dokter') ? 'active' : '' }} {{ (request()->segment(1) == 'jurusan') ? 'active' : '' }} {{ (request()->segment(1) == 'taruna') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->segment(1) == 'dokter') ? 'active' : '' }} {{ (request()->segment(1) == 'jurusan') ? 'active' : '' }} {{ (request()->segment(1) == 'taruna') ? 'active' : '' }} {{ (request()->segment(1) == 'sertifikat') ? 'active' : '' }} {{ (request()->segment(1) == 'jabatan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Data Master
@@ -83,6 +83,12 @@
                             <a href="{{ route('rekam-medis.create')}}" class="nav-link {{ (request()->is('rekam-medis/create')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Tambah Rekam Medis</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Lengkapi Rekam Medis</p>
                             </a>
                         </li>
                         <li class="nav-item">

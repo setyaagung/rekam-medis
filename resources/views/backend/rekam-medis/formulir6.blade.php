@@ -125,6 +125,3 @@
         <label for="">Catatan Hasil Rujukan</label>
         <textarea name="hasil_rujukan" class="form-control" rows="3"></textarea>
     </div>
-    <div class="float-right">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>

@@ -57,7 +57,7 @@
                                     @foreach ($sertifikats as $sertifikat)
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
-                                            <td>{{ $sertifikat->nama_sertifikat}}</td>
+                                            <td>{{ strtoupper($sertifikat->nama_sertifikat)}}</td>
                                             <td>{{ $sertifikat->deskripsi}}</td>
                                             <td>
                                                 <a href="{{ route('sertifikat.edit',$sertifikat->id_sertifikat)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit</a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Dokter;
+use App\Model\Jabatan;
+use App\Model\Sertifikat;
 use App\Model\Taruna;
 use Illuminate\Http\Request;
 
@@ -27,7 +29,9 @@ class RekamMedisController extends Controller
     {
         $tarunas = Taruna::orderBy('nama_taruna', 'ASC')->get();
         $dokters = Dokter::orderBy('nama_dokter', 'ASC')->get();
-        return view('backend.rekam-medis.create', compact('tarunas', 'dokters'));
+        $sertifikats = Sertifikat::orderBy('nama_sertifikat', 'ASC')->get();
+        $jabatans = Jabatan::orderBy('nama_jabatan', 'ASC')->get();
+        return view('backend.rekam-medis.create', compact('tarunas', 'dokters', 'sertifikats', 'jabatans'));
     }
 
     /**

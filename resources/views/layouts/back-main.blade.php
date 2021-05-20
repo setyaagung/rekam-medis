@@ -60,6 +60,14 @@
                 placeholder: "-- Pilih Dokter --",
                 allowClear: true
             });
+            $('.sertifikasi').select2({
+                placeholder: "-- Pilih Sertifikasi --",
+                allowClear: true
+            });
+            $('.jabatan').select2({
+                placeholder: "-- Pilih Jabatan --",
+                allowClear: true
+            });
             $(function () {
                 $("#example1").DataTable({
                     "responsive": true,
