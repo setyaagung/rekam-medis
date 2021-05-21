@@ -99,12 +99,14 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('user.index')}}" class="nav-link {{ (request()->segment(1) == 'user') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Kelola Pengguna</p>
-                    </a>
-                </li>
+                @if (Auth::user()->id_role == 1)
+                    <li class="nav-item">
+                        <a href="{{ route('user.index')}}" class="nav-link {{ (request()->segment(1) == 'user') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Kelola Pengguna</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
