@@ -173,7 +173,15 @@ class RekamMedisController extends Controller
      */
     public function show($id)
     {
-        //
+        $rm = RekamMedis::findOrFail($id);
+        $pf = PemeriksaanFisik::where('id_rm', $rm->id_rm)->get()->first();
+        $pt = PemeriksaanTht::where('id_rm', $rm->id_rm)->get()->first();
+        $pm = PemeriksaanMata::where('id_rm', $rm->id_rm)->get()->first();
+        $pg = PemeriksaanGigi::where('id_rm', $rm->id_rm)->get()->first();
+        $pr = PemeriksaanReproduksi::where('id_rm', $rm->id_rm)->get()->first();
+        $lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
+        $pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
+        return view('backend.rekam-medis.detail', compact('rm', 'pf', 'pt', 'pm', 'pg', 'pr', 'lab', 'pu'));
     }
 
     /**

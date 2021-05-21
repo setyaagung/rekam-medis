@@ -34,7 +34,6 @@
                                         <th>NO</th>
                                         <th>NOMOR REKAM MEDIS</th>
                                         <th>TARUNA</th>
-                                        <th>DOKTER</th>
                                         <th>TANGGAL UJIAN</th>
                                         <th>MASA BERLAKU</th>
                                         <th>AKSI</th>
@@ -46,7 +45,6 @@
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $rm->no_rm}}</td>
                                             <td>{{ $rm->taruna->nama_taruna}}</td>
-                                            <td>{{ $rm->dokter->nama_dokter}}</td>
                                             <td>
                                                 @if ($rm->tanggal_ujian == null)
 
@@ -56,6 +54,7 @@
                                             </td>
                                             <td>{{ \Carbon\Carbon::parse($rm->masa_berlaku)->isoFormat('D MMMM Y')}}</td>
                                             <td>
+                                                <a href="{{ route('rekam-medis.show',$rm->id_rm)}}" class="btn btn-sm btn-info"><i class="fas fa-file-alt"></i> Lihat Detail</a>
                                                 <a href="{{ route('rekam-medis.edit',$rm->id_rm)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('rekam-medis.destroy',$rm->id_rm)}}" method="POST" class="d-inline">
                                                     @csrf

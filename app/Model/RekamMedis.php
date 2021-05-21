@@ -22,4 +22,14 @@ class RekamMedis extends Model
     {
         return $this->belongsTo(Dokter::class, 'id_dokter');
     }
+
+    public function sertifikat()
+    {
+        return $this->belongsTo(Sertifikat::class, 'id_sertifikat');
+    }
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class, 'id_jabatan');
+    }
 }
