@@ -15,6 +15,7 @@ use App\Model\RekamMedis;
 use App\Model\Sertifikat;
 use App\Model\Taruna;
 use Illuminate\Http\Request;
+use PDF;
 
 class RekamMedisController extends Controller
 {
@@ -356,5 +357,20 @@ class RekamMedisController extends Controller
     {
         $rms = RekamMedis::orderBy('created_at', 'DESC')->where('tanggal_ujian', null)->get();
         return view('backend.rekam-medis.lengkapi-data', compact('rms'));
+    }
+
+    public function cetak($id)
+    {
+        $rm = RekamMedis::findOrFail($id);
+        $pf = PemeriksaanFisik::where('id_rm', $rm->id_rm)->get()->first();
+        $pt = PemeriksaanTht::where('id_rm', $rm->id_rm)->get()->first();
+        $pm = PemeriksaanMata::where('id_rm', $rm->id_rm)->get()->first();
+        $pg = PemeriksaanGigi::where('id_rm', $rm->id_rm)->get()->first();
+        $pr = PemeriksaanReproduksi::where('id_rm', $rm->id_rm)->get()->first();
+        $lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
+        $pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
+
+        $pdf = PDF::loadView('backend.rekam-medis.cetak', compact('rm', 'pf', 'pt', 'pm', 'pg', 'pr', 'lab', 'pu'));
+        return $pdf->stream();
     }
 }
