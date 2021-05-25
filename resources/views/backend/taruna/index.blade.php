@@ -80,7 +80,9 @@
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $taruna->nit}}</td>
-                                            <td>{{ $taruna->nama_taruna}}</td>
+                                            <td>
+                                                <a href="{{ route('taruna.show',$taruna->id_taruna)}}">{{ $taruna->nama_taruna}}</a>
+                                            </td>
                                             <td>{{ $taruna->jurusan->nama_jurusan}}</td>
                                             <td>{{ $taruna->no_telp}}</td>
                                             <td>{{ $taruna->alamat}}</td>

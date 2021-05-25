@@ -26,7 +26,7 @@ class RekamMedisController extends Controller
      */
     public function index()
     {
-        $rms = RekamMedis::orderBy('created_at', 'DESC')->where('tanggal_ujian', '!=', null)->get();
+        $rms = RekamMedis::orderBy('created_at', 'DESC')->get();
         return view('backend.rekam-medis.index', compact('rms'));
     }
 
@@ -52,6 +52,12 @@ class RekamMedisController extends Controller
      */
     public function store(Request $request)
     {
+        $message = [
+            'id_taruna.unique' => 'Taruna yang dipilih sudah pernah melakukan tes medis',
+        ];
+        $request->validate([
+            'id_taruna' => 'required|unique:rekam_medis'
+        ], $message);
         $data = $request->all();
         $rm = RekamMedis::create($data);
         PemeriksaanFisik::create(
@@ -226,6 +232,12 @@ class RekamMedisController extends Controller
         $lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
         $pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
 
+        $message = [
+            'id_taruna.unique' => 'Taruna yang dipilih sudah pernah melakukan tes medis',
+        ];
+        $request->validate([
+            'id_taruna' => 'required|unique:rekam_medis,id_taruna,' . $id . ',id_rm',
+        ], $message);
         $data = $request->all();
         $rm->update($data);
         $pf->update(
@@ -353,12 +365,6 @@ class RekamMedisController extends Controller
         return redirect()->back()->with('delete', 'Data rekam medis berhasil dihapus');
     }
 
-    public function lengkapi_data()
-    {
-        $rms = RekamMedis::orderBy('created_at', 'DESC')->where('tanggal_ujian', null)->get();
-        return view('backend.rekam-medis.lengkapi-data', compact('rms'));
-    }
-
     public function cetak($id)
     {
         $rm = RekamMedis::findOrFail($id);
@@ -370,7 +376,8 @@ class RekamMedisController extends Controller
         $lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
         $pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
 
+        $filename = 'RM-' . $rm->no_rm . '.pdf';
         $pdf = PDF::loadView('backend.rekam-medis.cetak', compact('rm', 'pf', 'pt', 'pm', 'pg', 'pr', 'lab', 'pu'));
-        return $pdf->stream();
+        return $pdf->download($filename);
     }
 }

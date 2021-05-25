@@ -32,8 +32,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('jabatan', 'JabatanController');
     //rekam medis
     Route::resource('rekam-medis', 'RekamMedisController');
-    Route::get('/lengkapi-data', 'RekamMedisController@lengkapi_data')->name('rekam-medis.lengkapi-data');
     Route::get('/rekam-medis/{id}/cetak/{no_rm}', 'RekamMedisController@cetak')->name('rekam-medis.cetak');
+    //riwayat periksa
+    Route::resource('periksa', 'PeriksaController');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');

@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Imports\TarunaImport;
 use App\Model\Jurusan;
+use App\Model\Laboratorium;
+use App\Model\PemeriksaanFisik;
+use App\Model\PemeriksaanGigi;
+use App\Model\PemeriksaanMata;
+use App\Model\PemeriksaanReproduksi;
+use App\Model\PemeriksaanTht;
+use App\Model\PemeriksaanUmum;
+use App\Model\Periksa;
+use App\Model\RekamMedis;
 use App\Model\Taruna;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -63,7 +72,17 @@ class TarunaController extends Controller
      */
     public function show($id)
     {
-        //
+        $taruna = Taruna::findOrFail($id);
+        $rm = RekamMedis::where('id_taruna', $taruna->id_taruna)->get()->first();
+        //$pf = PemeriksaanFisik::where('id_rm', $rm->id_rm)->get()->first();
+        //$pt = PemeriksaanTht::where('id_rm', $rm->id_rm)->get()->first();
+        //$pm = PemeriksaanMata::where('id_rm', $rm->id_rm)->get()->first();
+        //$pg = PemeriksaanGigi::where('id_rm', $rm->id_rm)->get()->first();
+        //$pr = PemeriksaanReproduksi::where('id_rm', $rm->id_rm)->get()->first();
+        //$lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
+        //$pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
+        $data_riwayat = Periksa::where('id_taruna', $taruna->id_taruna)->get();
+        return view('backend.taruna.show', compact('taruna', 'data_riwayat', 'rm'));
     }
 
     /**

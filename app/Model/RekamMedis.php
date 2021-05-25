@@ -10,7 +10,7 @@ class RekamMedis extends Model
     protected $primaryKey = 'id_rm';
     protected $fillable = [
         'id_taruna', 'id_dokter', 'no_rm', 'id_sertifikat',
-        'id_jabatan', 'tanggal_ujian', 'masa_berlaku', 'anamnese'
+        'id_jabatan', 'anamnese'
     ];
 
     public function taruna()

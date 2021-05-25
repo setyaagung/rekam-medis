@@ -1,6 +1,6 @@
 @extends('layouts.back-main')
 
-@section('title','Data Rekam Medis')
+@section('title','Detail Data Rekam Medis')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -45,14 +45,7 @@
                                                     <th>Jabatan</th>
                                                     <td>:</td>
                                                     <td>{{ strtoupper($rm->jabatan->nama_jabatan) }}</td>
-                                                    <th>Tanggal Ujian</th>
-                                                    <td>:</td>
-                                                    <td>{{ \Carbon\Carbon::parse($rm->tanggal_ujian)->isoFormat('D MMMM Y')}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Masa Berlaku</th>
-                                                    <td>:</td>
-                                                    <td>{{ \Carbon\Carbon::parse($rm->masa_berlaku)->isoFormat('D MMMM Y')}}</td>
+
                                                     <th>Anamnese</th>
                                                     <td>:</td>
                                                     <td>{{ $rm->anamnese}}</td>

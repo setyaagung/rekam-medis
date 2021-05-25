@@ -1,11 +1,16 @@
 <div class="form-group">
     <label for="">Nama Taruna</label>
-    <select class="form-control taruna" name="id_taruna" style="width: 100%;" required>
+    <select class="form-control @error('id_taruna') is-invalid @enderror taruna" name="id_taruna" style="width: 100%;" required>
         <option value=""></option>
         @foreach ($tarunas as $taruna)
             <option value="{{ $taruna->id_taruna}}" {{ $rm->id_taruna == $taruna->id_taruna ? 'selected':''}}>{{ $taruna->nama_taruna}} - {{ $taruna->nit}}</option>
         @endforeach
     </select>
+    @error('id_taruna')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
 </div>
 <div class="form-group">
     <label for="">Nama Dokter Pemeriksa</label>
@@ -37,19 +42,6 @@
             <option value="{{ $jabatan->id_jabatan}}" {{ $rm->id_jabatan == $jabatan->id_jabatan ? 'selected':''}}>{{ strtoupper($jabatan->nama_jabatan)}}</option>
         @endforeach
     </select>
-</div>
-<div class="form-group">
-    <label for="">Tanggal Ujian</label>
-    @if ($rm->tanggal_ujian == null)
-    <input type="date" class="form-control" name="tanggal_ujian">
-    @else
-        <input type="date" class="form-control" name="tanggal_ujian" value="{{ date('Y-m-d',strtotime($rm->tanggal_ujian))}}">
-    @endif
-    <span class="text-secondary" style="font-size: 14px"><i>NB: Untuk data rekam medis yang akan dilengkapi kembali atau pelaut membutuhkan tindakan medis lanjutan, silahkan pilih opsi kedua</i></span>
-</div>
-<div class="form-group">
-    <label for="">Masa Berlaku</label>
-    <input type="date" class="form-control" name="masa_berlaku" value="{{ date('Y-m-d',strtotime($rm->masa_berlaku))}}" required>
 </div>
 <div class="form-group">
     <label for="">Anamnese</label>

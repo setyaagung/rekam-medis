@@ -86,15 +86,32 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('rekam-medis.lengkapi-data')}}" class="nav-link {{ (request()->is('lengkapi-data')) ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Lengkapi Rekam Medis</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('rekam-medis.index')}}" class="nav-link {{ (request()->is('rekam-medis')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Lihat Rekam Medis</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link {{ (request()->segment(1) == 'periksa') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-archive"></i>
+                        <p>
+                            Pemeriksaan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('periksa.create')}}" class="nav-link {{ (request()->is('periksa/create')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tambah Pemeriksaan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('periksa.index')}}" class="nav-link {{ (request()->is('periksa')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Lihat Pemeriksaan</p>
                             </a>
                         </li>
                     </ul>
