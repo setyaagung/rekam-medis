@@ -22,6 +22,8 @@ class CreatePeriksaTable extends Migration
             $table->text('tindakan');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('id_taruna')->references('id_taruna')->on('taruna')->onDelete('cascade');
         });
     }
 
