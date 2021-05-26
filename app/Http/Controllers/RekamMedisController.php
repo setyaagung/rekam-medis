@@ -376,8 +376,8 @@ class RekamMedisController extends Controller
         $lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
         $pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
 
-        $filename = 'RM-' . $rm->no_rm . '.pdf';
+        //$filename = 'RM-' . $rm->no_rm . '.pdf';
         $pdf = PDF::loadView('backend.rekam-medis.cetak', compact('rm', 'pf', 'pt', 'pm', 'pg', 'pr', 'lab', 'pu'));
-        return $pdf->stream($filename);
+        return $pdf->stream();
     }
 }
