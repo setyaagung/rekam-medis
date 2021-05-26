@@ -17,6 +17,7 @@ use App\Model\Taruna;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class TarunaController extends Controller
 {
@@ -74,13 +75,6 @@ class TarunaController extends Controller
     {
         $taruna = Taruna::findOrFail($id);
         $rm = RekamMedis::where('id_taruna', $taruna->id_taruna)->get()->first();
-        //$pf = PemeriksaanFisik::where('id_rm', $rm->id_rm)->get()->first();
-        //$pt = PemeriksaanTht::where('id_rm', $rm->id_rm)->get()->first();
-        //$pm = PemeriksaanMata::where('id_rm', $rm->id_rm)->get()->first();
-        //$pg = PemeriksaanGigi::where('id_rm', $rm->id_rm)->get()->first();
-        //$pr = PemeriksaanReproduksi::where('id_rm', $rm->id_rm)->get()->first();
-        //$lab = Laboratorium::where('id_rm', $rm->id_rm)->get()->first();
-        //$pu = PemeriksaanUmum::where('id_rm', $rm->id_rm)->get()->first();
         $data_riwayat = Periksa::where('id_taruna', $taruna->id_taruna)->get();
         return view('backend.taruna.show', compact('taruna', 'data_riwayat', 'rm'));
     }
@@ -150,5 +144,16 @@ class TarunaController extends Controller
             DB::rollback();
             return redirect()->back()->with('errorImport', 'Kemungkingan format file anda salah atau data nit ada yang sama');
         }
+    }
+
+    public function cetak($id)
+    {
+        $taruna = Taruna::findOrFail($id);
+        $rm = RekamMedis::where('id_taruna', $taruna->id_taruna)->get()->first();
+        $data_riwayat = Periksa::where('id_taruna', $taruna->id_taruna)->get();
+
+        //$filename = 'RM-' . $rm->no_rm . '.pdf';
+        $pdf = PDF::loadView('backend.taruna.cetak', compact('taruna', 'rm', 'data_riwayat'));
+        return $pdf->stream();
     }
 }

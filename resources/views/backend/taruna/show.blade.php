@@ -19,7 +19,7 @@
                             <h3 class="card-title font-weight-bold">RIWAYAT PERIKSA DAN REKAM MEDIS</h3>
                             <div class="float-right">
                                 <a href="{{ route('taruna.index')}}" class="btn btn-sm btn-secondary">Kembali</a>
-                                <a href="#" class="btn btn-danger btn-sm" target="_blank"><i class="fas fa-file-pdf"></i> Print PDF</a>
+                                <a href="{{ route('taruna.cetak',$taruna->id_taruna)}}" class="btn btn-danger btn-sm" target="_blank"><i class="fas fa-file-pdf"></i> Print PDF</a>
                             </div>
                         </div>
                         <div class="card-body">

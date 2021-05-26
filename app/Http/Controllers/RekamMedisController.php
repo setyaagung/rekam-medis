@@ -378,6 +378,6 @@ class RekamMedisController extends Controller
 
         $filename = 'RM-' . $rm->no_rm . '.pdf';
         $pdf = PDF::loadView('backend.rekam-medis.cetak', compact('rm', 'pf', 'pt', 'pm', 'pg', 'pr', 'lab', 'pu'));
-        return $pdf->download($filename);
+        return $pdf->stream($filename);
     }
 }

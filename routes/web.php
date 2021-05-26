@@ -26,8 +26,11 @@ Route::middleware(['auth'])->group(function () {
     //data master
     Route::resource('dokter', 'DokterController');
     Route::resource('jurusan', 'JurusanController');
+    //taruna
     Route::resource('taruna', 'TarunaController');
     Route::post('/taruna/import', 'TarunaController@import')->name('taruna.import');
+    Route::get('/taruna/{id_taruna}/riwayat', 'TarunaController@cetak')->name('taruna.cetak');
+    //
     Route::resource('sertifikat', 'SertifikatController');
     Route::resource('jabatan', 'JabatanController');
     //rekam medis
