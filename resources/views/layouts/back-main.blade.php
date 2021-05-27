@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css')}}">
+        <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/pip-semarang-logo.png')}}">
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
