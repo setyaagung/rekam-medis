@@ -531,7 +531,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <table id="example1" class="table table-striped table-bordered">
+                            <table id="example1" class="table table-sm table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>NO</th>
