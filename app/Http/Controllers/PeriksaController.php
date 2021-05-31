@@ -79,7 +79,10 @@ class PeriksaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $periksa = Periksa::findOrFail($id);
+        $data = $request->all();
+        $periksa->update($data);
+        return redirect()->route('periksa.index')->with('update', 'Data periksa berhasil diperbarui');
     }
 
     /**
