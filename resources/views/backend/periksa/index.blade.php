@@ -68,6 +68,7 @@
                                             <td>{{ $periksa->keluhan}}</td>
                                             <td>{{ $periksa->tindakan}}</td>
                                             <td>
+                                                <a href="{{ asset($periksa->file)}}" class="btn btn-sm btn-info" target="_blank"><i class="fas fa-file"></i> Lihat File</a>
                                                 <a href="{{ route('periksa.edit',$periksa->id_periksa)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('periksa.destroy',$periksa->id_periksa)}}" method="POST" class="d-inline">
                                                     @csrf

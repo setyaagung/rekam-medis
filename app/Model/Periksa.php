@@ -10,7 +10,7 @@ class Periksa extends Model
     use SoftDeletes;
     protected $table = 'periksa';
     protected $primaryKey = 'id_periksa';
-    protected $fillable = ['id_taruna', 'id_dokter', 'tanggal_periksa', 'keluhan', 'tindakan'];
+    protected $fillable = ['id_taruna', 'id_dokter', 'tanggal_periksa', 'keluhan', 'tindakan', 'file'];
 
     public function taruna()
     {

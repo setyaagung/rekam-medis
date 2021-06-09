@@ -4,13 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Imports\TarunaImport;
 use App\Model\Jurusan;
-use App\Model\Laboratorium;
-use App\Model\PemeriksaanFisik;
-use App\Model\PemeriksaanGigi;
-use App\Model\PemeriksaanMata;
-use App\Model\PemeriksaanReproduksi;
-use App\Model\PemeriksaanTht;
-use App\Model\PemeriksaanUmum;
 use App\Model\Periksa;
 use App\Model\RekamMedis;
 use App\Model\Taruna;
@@ -18,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use File;
 
 class TarunaController extends Controller
 {
@@ -58,9 +52,16 @@ class TarunaController extends Controller
         $request->validate([
             'nit' => 'required|string|unique:taruna',
             'nama_taruna' => 'required|string|max:191',
-            'id_jurusan' => 'required'
+            'id_jurusan' => 'required',
+            'foto' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], $message);
         $data['nama_taruna'] = strtoupper($request->input('nama_taruna'));
+        if ($request->hasFile('foto')) {
+            $image_file = $request->file('foto');
+            $image_extension = $image_file->getClientOriginalExtension();
+            $image_filename = time() . '.' . $image_extension;
+            $data['foto'] = $image_file->move('foto', $image_filename);
+        }
         Taruna::create($data);
         return redirect()->route('taruna.index')->with('create', 'Data taruna berhasil ditambahkan');
     }
@@ -109,9 +110,17 @@ class TarunaController extends Controller
         $request->validate([
             'nit' => 'required|string|unique:taruna,nit,' . $id . ',id_taruna',
             'nama_taruna' => 'required|string|max:191',
-            'id_jurusan' => 'required'
+            'id_jurusan' => 'required',
+            'foto' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], $message);
         $data['nama_taruna'] = strtoupper($request->input('nama_taruna'));
+        if ($request->hasFile('foto')) {
+            File::delete($taruna->foto);
+            $image_file = $request->file('foto');
+            $image_extension = $image_file->getClientOriginalExtension();
+            $image_filename = time() . '.' . $image_extension;
+            $data['foto'] = $image_file->move('foto', $image_filename);
+        }
         $taruna->update($data);
         return redirect()->route('taruna.index')->with('update', 'Data taruna berhasil diperbarui');
     }
@@ -126,6 +135,7 @@ class TarunaController extends Controller
     {
         $taruna = Taruna::findOrFail($id);
         $taruna->delete();
+        File::delete($taruna->foto);
         return redirect()->route('taruna.index')->with('delete', 'Data taruna berhasil dihapus');
     }
 

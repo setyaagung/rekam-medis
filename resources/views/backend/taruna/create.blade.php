@@ -19,7 +19,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('taruna.store')}}" method="POST">
+                            <form action="{{ route('taruna.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Nomor Induk Taruna</label>
@@ -60,6 +60,15 @@
                                 <div class="form-group">
                                     <label for="">Alamat</label>
                                     <textarea name="alamat" class="form-control" rows="4">{{ old('alamat')}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Foto</label>
+                                    <input type="file" class="p-1 form-control @error('foto') is-invalid @enderror" name="foto" value="{{ old('foto') }}">
+                                    @error('foto')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="float-right">
                                     <a href="{{ route('taruna.index')}}" class="btn btn-secondary">Kembali</a>

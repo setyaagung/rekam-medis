@@ -19,7 +19,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('periksa.update',$periksa->id_periksa)}}" method="POST">
+                            <form action="{{ route('periksa.update',$periksa->id_periksa)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 <div class="form-group">
@@ -51,6 +51,15 @@
                                 <div class="form-group">
                                     <label for="">Tindakan</label>
                                     <textarea name="tindakan" class="form-control" rows="3" required>{{ $periksa->tindakan}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Upload File</label>
+                                    <input type="file" class="p-1 form-control @error('file') is-invalid @enderror" name="file">
+                                    @error('file')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="float-right">
                                     <a href="{{ route('periksa.index')}}" class="btn btn-secondary">Kembali</a>

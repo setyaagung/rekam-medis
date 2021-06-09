@@ -19,7 +19,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('periksa.store')}}" method="POST">
+                            <form action="{{ route('periksa.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Tanggal Periksa</label>
@@ -45,11 +45,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Keluhan</label>
-                                    <textarea name="keluhan" class="form-control" rows="3" required></textarea>
+                                    <textarea name="keluhan" class="form-control" rows="3" required>{{ old('keluhan')}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tindakan</label>
-                                    <textarea name="tindakan" class="form-control" rows="3" required></textarea>
+                                    <textarea name="tindakan" class="form-control" rows="3" required>{{ old('tindakan')}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Upload File</label>
+                                    <input type="file" class="p-1 form-control @error('file') is-invalid @enderror" name="file">
+                                    @error('file')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="float-right">
                                     <a href="{{ route('periksa.index')}}" class="btn btn-secondary">Kembali</a>

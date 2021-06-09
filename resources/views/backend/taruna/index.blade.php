@@ -66,11 +66,10 @@
                                 <thead>
                                     <tr>
                                         <th>NO</th>
+                                        <th>FOTO</th>
                                         <th>NIT</th>
                                         <th>NAMA TARUNA</th>
                                         <th>JURUSAN</th>
-                                        <th>NO TELP</th>
-                                        <th>ALAMAT</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
@@ -78,13 +77,18 @@
                                     @foreach ($tarunas as $taruna)
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
+                                            <td>
+                                                @if ($taruna->foto == null)
+
+                                                @else
+                                                    <img src="{{ asset($taruna->foto)}}" class="img-fluid" width="150px">
+                                                @endif
+                                            </td>
                                             <td>{{ $taruna->nit}}</td>
                                             <td>
                                                 <a href="{{ route('taruna.show',$taruna->id_taruna)}}">{{ $taruna->nama_taruna}}</a>
                                             </td>
                                             <td>{{ $taruna->jurusan->nama_jurusan}}</td>
-                                            <td>{{ $taruna->no_telp}}</td>
-                                            <td>{{ $taruna->alamat}}</td>
                                             <td>
                                                 <a href="{{ route('taruna.edit',$taruna->id_taruna)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('taruna.destroy',$taruna->id_taruna)}}" method="POST" class="d-inline">

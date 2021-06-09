@@ -6,6 +6,7 @@ use App\Model\Dokter;
 use App\Model\Periksa;
 use App\Model\Taruna;
 use Illuminate\Http\Request;
+use File;
 
 class PeriksaController extends Controller
 {
@@ -40,7 +41,16 @@ class PeriksaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'file' => 'mimes:pdf|max:2048'
+        ]);
         $data = $request->all();
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = $file->move('file', $filename);
+        }
         Periksa::create($data);
         return redirect()->route('periksa.index')->with('create', 'Data periksa berhasil ditambahkan');
     }
@@ -80,7 +90,17 @@ class PeriksaController extends Controller
     public function update(Request $request, $id)
     {
         $periksa = Periksa::findOrFail($id);
+        $request->validate([
+            'file' => 'mimes:pdf|max:2048'
+        ]);
         $data = $request->all();
+        if ($request->hasFile('file')) {
+            File::delete($periksa->file);
+            $file = $request->file('file');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = $file->move('file', $filename);
+        }
         $periksa->update($data);
         return redirect()->route('periksa.index')->with('update', 'Data periksa berhasil diperbarui');
     }
@@ -93,6 +113,9 @@ class PeriksaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $periksa = Periksa::findOrFail($id);
+        $periksa->delete();
+        File::delete($periksa->file);
+        return redirect()->route('periksa.index')->with('delete', 'Data periksa berhasil dihapus');
     }
 }
